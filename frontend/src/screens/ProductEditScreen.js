@@ -35,6 +35,7 @@ const ProductEditScreen = {
             formData.append('image',file);
             showLoading();
             const data = await updateProductImage(formData);
+            console.log(data);
             hideLoading();
             if(data.error){
                 showMessage(data.error);

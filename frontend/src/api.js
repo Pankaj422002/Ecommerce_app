@@ -380,7 +380,9 @@ export const updateProductImage = async (formData)=>{
             },
             data:formData,
         });
-        console.log(response);
+
+        console.log('updateproductimage',response);
+        
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
