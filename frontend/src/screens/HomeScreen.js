@@ -3,6 +3,7 @@ import Rating from '../components/Rating';
 const HomeScreen = {
   render: async () => {
     const products = await getProducts();
+    // console.log(products);
     if(products.error){
       return `<div class="error">${products.error}</div>`
     }
@@ -30,7 +31,7 @@ const HomeScreen = {
                         ${product.brand}
                     </div>
                     <div class="product-price">
-                        ${product.price}
+                        $${product.price}
                     </div>
                 </div>
             </li>     

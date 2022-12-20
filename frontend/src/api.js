@@ -12,7 +12,7 @@ export const getProducts = async ()=>{
             },
         });
 
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -35,8 +35,8 @@ export const getProduct = async (id)=>{
                 'Content-Type':'application/json'
             },
         });
-        console.log(response);
-        console.log(response);
+        // console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -63,7 +63,7 @@ export const signin = async ({email,password})=>{
                 password,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -94,7 +94,7 @@ export const register = async ({name,email,password,repassword})=>{
                 password,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -123,7 +123,7 @@ export const update = async ({name,email,password})=>{
                 password,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -148,7 +148,7 @@ export const createOrder = async (order)=>{
             },
             data: order,
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -172,7 +172,7 @@ export const getOrders = async ()=>{
                 'Authorization': `Bearer ${token}`,
             },
         });
-        console.log('getoorders',response);
+        // console.log('getoorders',response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -196,14 +196,13 @@ export const getOrder = async (id)=>{
                 'Authorization':`Bearer ${token}`,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
             throw new Error(response.data.message);
         }
     
-        return response.data;
     }catch(err){
         return {error : err.message};
     }
@@ -220,7 +219,7 @@ export const deleteOrder = async(productId)=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -243,7 +242,7 @@ export const deliverOrder = async(orderId,paymentResult)=>{
                 Authorization:`Bearer ${token}`
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -265,7 +264,7 @@ export const getPaypalClientId = async()=>{
             'Content-Type':'application/json'
         },
     });
-    console.log(response);
+    // console.log(response);
     if(response.status >=200 && response.status <=300){
         return response.data.clientId;            
     }else{
@@ -286,7 +285,7 @@ export const payOrder = async(orderId,paymentResult)=>{
             },
             data: paymentResult,
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -309,7 +308,7 @@ export const getMyOrders = async ()=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -332,7 +331,7 @@ export const createProduct = async()=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log('response createproduct',response);
+        // console.log('response createproduct',response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -356,7 +355,7 @@ export const updateProduct = async(product)=>{
             },
             data: product
         });
-        console.log('response',response);
+        // console.log('response',response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -380,8 +379,7 @@ export const updateProductImage = async (formData)=>{
             },
             data:formData,
         });
-        alert('hi');
-        console.log('updateproductimage',response);
+        // console.log('updateproductimage',response);
 
         if(response.status >=200 && response.status <=300){
             return response.data;            
@@ -406,7 +404,7 @@ export const deleteProduct = async(productId)=>{
                 'Authorization': `Bearer ${token}`,
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
@@ -428,7 +426,7 @@ export const getSummary = async ()=>{
                 'Content-Type': 'application/json',
             },
         });
-        console.log(response);
+        // console.log(response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{

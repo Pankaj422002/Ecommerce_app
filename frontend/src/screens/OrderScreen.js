@@ -84,6 +84,7 @@ const OrderScreen = {
 
     },
     render: async ()=>{
+        hideLoading();
         const {isAdmin} = getUserInfo();
         const request = parseRequestUrl();
         const {

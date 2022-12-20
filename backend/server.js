@@ -35,7 +35,7 @@ app.get('/api/paypal/clientId',(req,res)=>{
 
 
 // also have to make the upload as static file: 
-app.use('/uploads',express.static(path.join(__dirname,'../uploads')));
+app.use('/images',express.static(path.join(__dirname,'../images')));
 
 /// make frontend folder to static :
 app.use(express.static(path.join(__dirname,'/../frontend')));
