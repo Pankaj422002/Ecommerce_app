@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 const uploadRouter = express.Router();
 
-uploadRouter.post('/',isAuth, isAdmin, upload.single('image'), (req,res)=>{
+uploadRouter.post('/', upload.single('image'), (req,res)=>{
     console.log('authorized and admin also');
     res.status(200).send({image: `/${req.file.path}`});
 });
