@@ -371,7 +371,6 @@ export const updateProduct = async(product)=>{
 export const updateProductImage = async (formData)=>{
     try{
         const {token} = getUserInfo();
-        alert('hi');
         const response = await axios({
             url:`${apiUrl}/api/uploads`,
             method: 'POST',
