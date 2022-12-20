@@ -3,7 +3,7 @@ import multer from 'multer';
 import {isAuth, isAdmin} from '../utils';
 const storage = multer.diskStorage({
     destination(req,file,cb){
-        cb(null,'/tmp/uploads/');
+        cb(null,'/images/modelimg/');
     },
     filename(req,file,cb){
         cb(null,`${Date.now()}.jpg`);
