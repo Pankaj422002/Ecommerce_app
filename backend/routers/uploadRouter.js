@@ -3,7 +3,7 @@ import multer from 'multer';
 import {isAuth, isAdmin} from '../utils';
 const storage = multer.diskStorage({
     destination(req,file,cb){
-        cb(null,'uploads/');
+        cb(null,'uploads/tmp/');
     },
     filename(req,file,cb){
         cb(null,`${Date.now()}.jpg`);
@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 const uploadRouter = express.Router();
 
-uploadRouter.post('/', upload.single('image'), (req,res)=>{
+uploadRouter.post('/',isAuth, isAdmin, upload.single('image'), (req,res)=>{
     console.log('authorized and admin also');
     res.status(200).send({image: `/${req.file.path}`});
 });
