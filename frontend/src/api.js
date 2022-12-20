@@ -12,7 +12,7 @@ export const getProducts = async ()=>{
             },
         });
 
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -34,7 +34,7 @@ export const getProduct = async (id)=>{
                 'Content-Type':'application/json'
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -61,7 +61,7 @@ export const signin = async ({email,password})=>{
                 password,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -89,7 +89,7 @@ export const register = async ({name,email,password})=>{
                 password,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -118,7 +118,7 @@ export const update = async ({name,email,password})=>{
                 password,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -142,7 +142,7 @@ export const createOrder = async (order)=>{
             },
             data: order,
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'Created'){
             throw new Error(response.data.message);
         }
@@ -165,7 +165,7 @@ export const getOrders = async ()=>{
                 'Authorization': `Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -189,7 +189,7 @@ export const getOrder = async (id)=>{
                 'Authorization':`Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'OK'){
             throw new Error(response.data.message);
         }
@@ -211,7 +211,7 @@ export const deleteOrder = async(productId)=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -234,7 +234,7 @@ export const deliverOrder = async(orderId,paymentResult)=>{
                 Authorization:`Bearer ${token}`
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -256,7 +256,7 @@ export const getPaypalClientId = async()=>{
             'Content-Type':'application/json'
         },
     });
-    alert(response.statusText);
+    console.log(response);
     if(response.statusText!='OK'){
         throw new Error(response.data.message);
     }
@@ -275,7 +275,7 @@ export const payOrder = async(orderId,paymentResult)=>{
             },
             data: paymentResult,
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -298,7 +298,7 @@ export const getMyOrders = async ()=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -321,7 +321,7 @@ export const createProduct = async()=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='Created'){
             throw new Error(response.data.message);
         }
@@ -345,7 +345,7 @@ export const updateProduct = async(product)=>{
             },
             data: product
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -369,7 +369,7 @@ export const updateProductImage = async (formData)=>{
             },
             data:formData,
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText != 'Created'){
             throw new Error(response.data.message);
         }else{
@@ -393,7 +393,7 @@ export const deleteProduct = async(productId)=>{
                 'Authorization': `Bearer ${token}`,
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
@@ -415,7 +415,7 @@ export const getSummary = async ()=>{
                 'Content-Type': 'application/json',
             },
         });
-        alert(response.statusText);
+        console.log(response);
         if(response.statusText!='OK'){
             throw new Error(response.data.message);
         }
