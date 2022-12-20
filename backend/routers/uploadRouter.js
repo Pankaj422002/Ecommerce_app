@@ -14,7 +14,7 @@ const upload = multer({storage});
 const uploadRouter = express.Router();
 
 uploadRouter.post('/',isAuth, isAdmin, upload.single('image'), (req,res)=>{
-    res.status(201).send({image: `/${req.file.path}`});
+    res.status(200).send({image: `/${req.file.path}`});
 });
 
 export default uploadRouter;

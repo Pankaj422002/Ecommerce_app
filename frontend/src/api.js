@@ -13,11 +13,12 @@ export const getProducts = async ()=>{
         });
 
         console.log(response);
-        if(response.statusText != 'OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
 
-        return response.data;
 
     }catch(err){
         console.log(err);
@@ -35,11 +36,12 @@ export const getProduct = async (id)=>{
             },
         });
         console.log(response);
-        if(response.statusText != 'OK'){
+        console.log(response);
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         console.log(err);
@@ -62,11 +64,11 @@ export const signin = async ({email,password})=>{
             },
         });
         console.log(response);
-        if(response.statusText != 'OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         console.log(err);
@@ -90,11 +92,11 @@ export const register = async ({name,email,password})=>{
             },
         });
         console.log(response);
-        if(response.statusText != 'OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         console.log(err);
@@ -119,10 +121,11 @@ export const update = async ({name,email,password})=>{
             },
         });
         console.log(response);
-        if(response.statusText != 'OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-        return response.data;
 
     }catch(err){
         console.log(err);
@@ -143,10 +146,11 @@ export const createOrder = async (order)=>{
             data: order,
         });
         console.log(response);
-        if(response.statusText != 'Created'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-        return response.data;
 
     }catch(err){
         return { error: err.response ? err.response.data.message : err.message };
@@ -166,11 +170,11 @@ export const getOrders = async ()=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return {error : err.response.data.message ||  err.message};
@@ -190,7 +194,9 @@ export const getOrder = async (id)=>{
             },
         });
         console.log(response);
-        if(response.statusText != 'OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
     
@@ -212,11 +218,11 @@ export const deleteOrder = async(productId)=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return {error : err.response.data.message ||  err.message};
@@ -235,11 +241,11 @@ export const deliverOrder = async(orderId,paymentResult)=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return { error: err.response ? err.response.data.message : err.message };
@@ -257,10 +263,12 @@ export const getPaypalClientId = async()=>{
         },
     });
     console.log(response);
-    if(response.statusText!='OK'){
+    if(response.status >=200 && response.status <=300){
+        return response.data.clientId;            
+    }else{
         throw new Error(response.data.message);
     }
-    return response.data.clientId;
+
 }
 
 export const payOrder = async(orderId,paymentResult)=>{
@@ -276,11 +284,11 @@ export const payOrder = async(orderId,paymentResult)=>{
             data: paymentResult,
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return { error: err.response ? err.response.data.message : err.message };
@@ -299,11 +307,11 @@ export const getMyOrders = async ()=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return { error: err.response ? err.response.data.message : err.message };
@@ -321,12 +329,12 @@ export const createProduct = async()=>{
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(response);
-        if(response.statusText!='Created'){
+        console.log('response createproduct',response);
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return {error : err.response.data.message ||  err.message};
@@ -345,12 +353,12 @@ export const updateProduct = async(product)=>{
             },
             data: product
         });
-        console.log(response);
-        if(response.statusText!='OK'){
+        console.log('response',response);
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return {error : err.response.data.message ||  err.message};
@@ -370,15 +378,15 @@ export const updateProductImage = async (formData)=>{
             data:formData,
         });
         console.log(response);
-        if(response.statusText != 'Created'){
-            throw new Error(response.data.message);
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
         }else{
-            return response.data;
+            throw new Error(response.data.message);
         }
 
     }catch(err){
         
-        return {error: err.response.data.message || err.message};
+        return {error: err.response || err.message};
     }
 }
 
@@ -394,11 +402,11 @@ export const deleteProduct = async(productId)=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
     }catch(err){
         return {error : err.response.data.message ||  err.message};
@@ -416,11 +424,11 @@ export const getSummary = async ()=>{
             },
         });
         console.log(response);
-        if(response.statusText!='OK'){
+        if(response.status >=200 && response.status <=300){
+            return response.data;            
+        }else{
             throw new Error(response.data.message);
         }
-
-        return response.data;
 
 
     }catch(err){

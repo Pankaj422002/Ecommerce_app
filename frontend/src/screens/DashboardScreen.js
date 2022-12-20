@@ -18,20 +18,19 @@ const DashboardScreen = {
                         <div class="summary-title color1">
                             <span><i class="fa fa-users">Users</i></span>
                         </div>
-                        <div class="summary-body">${summary.users[0].numUsers}</div>
-                     
+                        ${summary.userStats ? `<div class="summary-body">${summary.userStats.numUsers}</div>` : `<div class="summary-body">0</div>` } 
                     </li>
                     <li>
                         <div class="summary-title color2">
                             <span><i class="fa fa-users">Orders</i></span>
                         </div>
-                        <div class="summary-body">${summary.orders[0].numOrders}</div>
+                        ${summary.orderStats ? `<div class="summary-body">${summary.orderStats.numOrders}</div>` : `<div class="summary-body">0</div>` } 
                     </li>
                     <li>
                         <div class="summary-title color3">
                             <span><i class="fa fa-users">Sales</i></span>
                         </div>
-                        <div class="summary-body">$${summary.orders[0].totalSales}</div>
+                        ${summary.orderStats ? `<div class="summary-body">${summary.orderStats.totalSales}</div>` : `<div class="summary-body">0</div>` } 
                   
                     </li>
                 </ul>
