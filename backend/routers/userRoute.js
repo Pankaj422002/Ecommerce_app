@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/userModel";
 import expressAsyncHandler from 'express-async-handler';
 import { generateToken, isAuth } from "../utils";
+import bcrypt from "bcrypt";
 
 const userRouter = express.Router();
 
@@ -25,11 +26,11 @@ userRouter.get('/createadmin',expressAsyncHandler (async(req,res)=>{
 }) )
 
 userRouter.post('/signin', expressAsyncHandler (async (req,res)=>{
+    
+    const email = req.body.email;
+    const password = req.body.password;
 
-    const signinUser = await User.findOne({
-        email: req.body.email,
-        password: req.body.password,
-    });
+    const signinUser = await User.findOne({email:email});
 
     // res.send(signinUser);
 
@@ -38,18 +39,27 @@ userRouter.post('/signin', expressAsyncHandler (async (req,res)=>{
             message: 'Invalid Email or Password',
         });
     }else{
-        res.send({
-            _id: signinUser._id,
-            name: signinUser.name,
-            email: signinUser.email,
-            isAdmin: signinUser.isAdmin,
-            token: generateToken(signinUser),
-        });
+        const isMatch = await bcrypt.compare(password,signinUser.password);
+        if(isMatch){
+            res.send({
+                _id: signinUser._id,
+                name: signinUser.name,
+                email: signinUser.email,
+                isAdmin: signinUser.isAdmin,
+                token: generateToken(signinUser),
+            });
+        }else{
+            res.status(401).send({
+                message: 'Invalid Email or Password',
+            });
+        }      
     }
+    
 }) );
 
 userRouter.post('/register', expressAsyncHandler (async (req,res)=>{
 
+    
     const user = new User({
         name: req.body.name,
         email: req.body.email,
@@ -57,6 +67,8 @@ userRouter.post('/register', expressAsyncHandler (async (req,res)=>{
     })
 
     // res.send(signinUser);
+    //hashing of passsword:
+    
     const createdUser = await user.save();
 
     if(!createdUser){

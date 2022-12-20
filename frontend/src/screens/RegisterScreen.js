@@ -12,6 +12,7 @@ const RegisterScreen = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 password: document.getElementById('password').value,
+                repassword: document.getElementById('repassword').value,
             });
             hideLoading();
             if(data.error){

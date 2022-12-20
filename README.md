@@ -276,6 +276,7 @@ root:
    change:2: 
    heroku config:set PAYPAL_CLIENT_ID = "<clientid>";
 
-
+========================
+# this is removed form package.json: 
 
     "start": "nodemon --watch backend --exec babel-node backend/server.js",

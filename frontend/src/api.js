@@ -76,9 +76,12 @@ export const signin = async ({email,password})=>{
     }
 }
 
-export const register = async ({name,email,password})=>{
+export const register = async ({name,email,password,repassword})=>{
     try{
 
+        if(password!=repassword){
+            return {error: "password not match"};
+        }
         const response = await axios({
             url: `${apiUrl}/api/users/register`,
             method: 'POST',
@@ -169,7 +172,7 @@ export const getOrders = async ()=>{
                 'Authorization': `Bearer ${token}`,
             },
         });
-        console.log(response);
+        console.log('getoorders',response);
         if(response.status >=200 && response.status <=300){
             return response.data;            
         }else{
