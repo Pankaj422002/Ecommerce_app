@@ -1,0 +1,3 @@
+MONGODB_URL = mongodb://localhost:27017/mycollection
+JWT_SECRET = somethingmustbesecretthatissecret
+PAYPAL_CLIENT_ID = sklafjalkfjlaskfjalkfdjklasfjlkadfjklajflk
