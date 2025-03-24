@@ -280,3 +280,21 @@ root:
 # this is removed form package.json: 
 
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
+
+
+
+=========================
+  "engines": {
+    "node": "12.4.0",
+    "npm": "6.9.0"
+  }
+
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "rimraf dest && babel backend -d dist",
+    "serve": "node dist/server.js",
+    "cyclic-prebuild": "cd frontend && npm install --dev",
+    "cyclic-postbuild": "npm run build && cd frontend && npm install && npm build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
