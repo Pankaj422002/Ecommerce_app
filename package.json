@@ -7,8 +7,8 @@
     "start": "node dist/server.js",
     "build": "rimraf dest && babel backend -d dist",
     "serve": "node dist/server.js",
-    "cyclic-prebuild": "cd frontend && npm install --dev",
-    "cyclic-postbuild": "npm run build && cd frontend && npm install && npm build",
+    "prebuild": "cd frontend && npm install --dev",
+    "postbuild": "npm run build && cd frontend && npm install && npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
