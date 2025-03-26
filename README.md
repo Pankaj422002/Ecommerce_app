@@ -298,3 +298,13 @@ root:
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
+-------------
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "rimraf dest && babel backend -d dist",
+    "serve": "node dist/server.js",
+    "prebuild": "cd frontend && npm --install=dev",
+    "postbuild": "npm run build && cd frontend && npm install && npm build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
