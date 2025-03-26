@@ -37,10 +37,10 @@ app.get('/api/paypal/clientId', (req, res) => {
 // also have to make the upload as static file: 
 const __dirname = path.resolve();
 
-app.use('/images', express.static(path.join(__dirname, '/images')));
+app.use('/images', express.static(path.join(__dirname, '/../images')));
 
 /// make frontend folder to static :
-app.use(express.static(path.join(__dirname, '/frontend')));
+app.use(express.static(path.join(__dirname, '/../frontend')));
 // also make the index.html as starting file: 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/index.html'));
