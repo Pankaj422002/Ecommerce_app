@@ -308,3 +308,9 @@ root:
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
+
+=-=====================
+Key: NODE_OPTIONS
+
+Value: --openssl-legacy-provider
+

@@ -43,7 +43,7 @@ app.use('/images', express.static(path.join(__dirname, '/../images')));
 app.use(express.static(path.join(__dirname, '/../frontend')));
 // also make the index.html as starting file: 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/frontend/index.html'));
+  res.sendFile(path.join(__dirname, '/../frontend/index.html'));
 });
 
 
