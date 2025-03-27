@@ -39,6 +39,8 @@ const __dirname = path.resolve();
 
 app.use('/images', express.static(path.join(__dirname, '/../images')));
 
+console.log("dirname: ", __dirname);
+
 /// make frontend folder to static :
 app.use(express.static(path.join(__dirname, '/../frontend')));
 // also make the index.html as starting file: 
